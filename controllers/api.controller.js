@@ -314,6 +314,7 @@ exports.editCarListing = function(req,res){
     var model = req.body.model;
     var brand = req.body.brand;
     var year = req.body.year;
+    var price = req.body.price;
 
     var carId = req.params.car_id;
 
@@ -330,7 +331,8 @@ exports.editCarListing = function(req,res){
         car.update({
             brand : brand ? brand : car.brand,
             model : model ? model : car.model,
-            year : year ? year : car.year
+            year : year ? year : car.year,
+            price : price ? price : car.price
         }).then(function(updatedCar){
             res.status(201).json({
                 msg : "Car details updated"
