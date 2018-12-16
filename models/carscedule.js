@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   CarScedule.associate = function(models) {
     // CarScedule belongsTo car
-    CarScedule.belongsTo(models.Car);
+    CarScedule.belongsTo(models.Car, {foreignKey : 'car_id'});
   };
   return CarScedule;
 };

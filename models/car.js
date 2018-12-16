@@ -5,12 +5,17 @@ module.exports = (sequelize, DataTypes) => {
     brand: DataTypes.STRING,
     model: DataTypes.STRING,
     year: DataTypes.INTEGER,
+    featured: DataTypes.BOOLEAN,
+    price: DataTypes.FLOAT,
+    status: DataTypes.BOOLEAN,
     
   }, {});
   Car.associate = function(models) {
     // car belongsTo a user
-    Car.belongsTo(models.User);
+    Car.belongsTo(models.User,{foreignKey : 'user_id'});
     
+    // car hasMany carSchedules
+    Car.hasMany(models.CarScedule, {foreignKey : 'car_id'});
   };
   return Car;
 };

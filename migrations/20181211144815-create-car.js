@@ -23,6 +23,9 @@ module.exports = {
       year: {
         type: Sequelize.INTEGER
       },
+      featured: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

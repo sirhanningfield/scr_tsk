@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
+const config = require('../config/env');
 module.exports = function(req,res,next){
     if(req.headers.authorization){
         var token = req.headers.authorization.split(" ")[1]
@@ -9,6 +9,7 @@ module.exports = function(req,res,next){
                     error:err.message
                 })
             }else{
+                req.userData = decoded;
                 next();
             }
         });
